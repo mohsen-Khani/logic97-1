@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "XB Niloofar";
+    src:url(Niloofar/XB-Niloofar.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: "XB Niloofar";
+    src: url(Niloofar/XB-NiloofarBd.ttf);
+    font-weight: bold;
+}

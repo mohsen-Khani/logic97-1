@@ -1,0 +1,115 @@
+#wrapper {
+    position: relative;
+    max-width: 1010px;
+    margin: 0 auto;
+    box-shadow: 0 0 6px #999;
+    background: #faf3ea;
+    overflow: hidden;
+}
+#header{
+    background: url("../images/headerfa.gif")no-repeat scroll right top #90d3e3;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    height: 190px;
+}
+#dheader {
+    margin-top: 160px;
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+    margin-right: 60px;
+}
+html, body, div, span, applet, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+#main-menu {
+    min-height: 40px;
+    box-shadow: 0 0 3px #999;
+    background: white;
+    min-height: 40px;
+    font-family: "XB Niloofar";
+}
+#main-menu ul {
+    position: relative;
+    z-index: 50;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    list-style: none;
+    font-size: 12px;
+    text-align: right;
+    direction: rtl;
+    float: inherit;
+}
+#main-menu ul.menu li {
+    margin: 0;
+}
+#main-menu ul li.leaf, #main-menu ul li.expanded, #main-menu ul li.collapsed {
+    list-style: none;
+    list-style-image: none;
+}
+#main-menu ul li:first-child {
+    padding-left: 0;
+}
+#main-menu ul li.leaf, #main-menu ul li.expanded, #main-menu ul li.collapsed {
+    list-style: none;
+    list-style-image: none;
+}
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+.clear:after {
+    clear: both;
+    content: ' ';
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+#main-menu a {
+    display: block;
+    padding: 0 11px;
+    text-align: right;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    color: #334246;
+}
+ul.menu {
+    border: none;
+}
+#main-menu li {
+    float: right;
+    position: relative;
+    line-height: 40px;
+}
+#main-menu li ul {
+    margin: 0px -40px 0 0px !important;
+}
+#page-header h4,#page-header h5{
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+body{font-family: "XB Niloofar"}
+#content{
+    padding:3%;
+}
+#update-time{
+    font-size: small;
+}
+.imp-text{
+    color:crimson;
+}
