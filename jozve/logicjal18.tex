@@ -1,0 +1,451 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=.7in]{geometry}
+\usepackage{amsmath}
+\usepackage{cancel} 
+\usepackage{hyperref}
+\usepackage{arcs}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{stackrel}
+\usepackage{enumerate}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{ wasysym }
+\usepackage{tikz}
+
+\theoremstyle{definition}
+\newtheorem{thm}{قضیه}
+\newtheorem{mesal}[thm]{مثال}
+\newtheorem{soal}[thm]{سوال}
+\newtheorem{tav}[thm]{توجه}
+\newtheorem{tamrin}{تمرین}
+
+\newtheorem{tamrinetahvili}{تمرین تحویلی}
+\newtheorem{lem}[thm]{لم}
+\newtheorem{lemak}[thm]{لِمَک}
+\newtheorem{moshahedat}[thm]{مشاهدات}
+\newtheorem{moshahede}[thm]{مشاهده}
+
+\newtheorem{nokte}[thm]{نکته}
+\newtheorem{jambandi}{جمعبندی}
+\newtheorem{defn}[thm]{تعریف}
+\newtheorem{natije}[thm]{نتیجه}
+\newtheorem{moroor}[thm]{مرور درس‌}
+\newtheorem{yadavari}[thm]{یادآوری}
+\newtheorem{tamim}[thm]{تعمیم}
+\newtheorem{hadaf}[thm]{هدف}
+\newtheorem{xolase}[thm]{خلاصه}
+\newtheorem{namadgozari}[thm]{نمادگذاری}
+\newtheorem{deghat}{دقت}
+
+\usepackage{xepersian}
+\settextfont{XB Niloofar}
+\setdigitfont{XB Niloofar}
+\linespread{1.5}
+
+\newcommand*{\TakeFourierOrnament}[1]{{%
+		\fontencoding{U}\fontfamily{futs}\selectfont\char#1}}
+
+\newcommand*{\danger}{\TakeFourierOrnament{66}}
+
+\newcommand{\tarc}{\mbox{\large$\frown$}}
+\newcommand{\arc}[1]{\stackrel{\tarc}{#1}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\begin{document}
+	\section{جلسه‌ی هجدهم}
+	در حال اثبات قضیه‌ی زیر بودیم:
+	\begin{thm}
+		اگر 
+		$ T $
+		متناهیاً سازگارِ هنکینیِ کامل باشد آن‌گاه 
+		$ T $
+		دارای مُدِل است.
+	\end{thm}
+گفتیم که جهان  مدل مورد نظر ما قرار است به صورت
+
+		\[ M=\{ a_c | c\in C \} \]
+		باشد که در آن
+		$C$
+		مجموعه‌ی ثوابتِ موجود در زبانِ
+		$L\cup C$ 
+		است. تعریف کردیم
+		\[ a_c = a_{c'} \iff T\vdash c=c' \]
+همچنین	تعبیر توابع، روابط و ثوابت صورت گرفت و ساختار زیر معرفی شد:
+	\[ \mathfrak{M}=\langle M,f^\mathfrak{M},R^\mathfrak{M},c^\mathfrak{M}\rangle \]
+تنها اثبات گفته‌ی زیر مانده است:
+	\begin{lem}
+		برای هر جمله‌ی 
+		$ \varphi\in T $
+		داریم
+		\[ \mathfrak{M}\models\varphi \]
+	\end{lem}
+	\begin{proof}
+		با استقراء روی ساخت جمله‌ی 
+		$ \varphi $.
+		\\
+		$ \circled{1} $
+		فرض کنید 
+		$ \varphi $
+		جمله‌ای به صورت 
+		$ t_1(c_1,\ldots,c_n)=t_2(c_1,\ldots,c_n)\in T $
+		باشد.  هدفمان اثبات این است که 
+		\[ \mathfrak{M}\models t_1(c_1,\ldots,c_n)=t_2(c_1,\ldots,c_n). \]
+		\newline
+
+		فرض: 
+		\[ \circled{1}\quad T\vdash t_1(c_1,\ldots,c_n)=t_2(c_1,\ldots,c_n) \]
+		بنا به لم سور وجودی 
+		\[ \circled{2}\quad T\vdash t_1(c_1,\ldots,c_n)=t_2(c_1,\ldots,c_n) \to \exists x \quad t_1(c_1,\ldots,c_n)=x \]
+		\[ \circled{1},\circled{2},MP \Rightarrow \circled{3} \quad T\vdash\exists x \quad t_1(c_1,\ldots,c_n)=x  \]
+		از طرفی 
+		$ T $
+		یک تئوری هنکینی است. بنابراین شاهدِ 
+		$ c_{n+1} $
+		موجود است به طوری که
+		\[ \circled{4} \quad T\vdash \exists x \quad t_1(c_1,\ldots,c_n)=x \to t_1(c_1,\ldots,c_n)=c_{n+1} \]
+		\[ \circled{3},\circled{4},MP \Rightarrow T\vdash t_1(c_1,\ldots,c_n)=c_{n+1} \]
+		\begin{tamrin}[با استقراء روی ساخت ترم‌ها]
+			نشان دهید اگر 
+			$ T\vdash t(c_1,\ldots,c_n)=c_{n+1} $
+			آنگاه 
+			\[ \mathfrak{M}\models t(c_1,\ldots,c_n)=c_{n+1} \]
+			و از آن حکم لم را نتیجه بگیرید.
+		\end{tamrin}
+
+		$ \circled{2} $
+		فرض کنید 
+		$ \varphi $
+		فرمولی در 
+		$T$ 
+		به صورت 
+		\[ R(t_1,\ldots,t_n)\]
+		باشد. ادعا:
+		\[ \mathfrak{M}\models R\Big( t_1(c_1,\ldots,c_n),\ldots,t_n(c_1,\ldots,c_n) \Big) \]
+مشابه بخشهای قبلی اثبات،		نخست ثابت کنید که ثوابتِ 
+		$ c_1',\ldots,c_n' $
+		موجودند به طوری که 
+		\[ T\vdash t_i(c_1,\ldots,c_n)=c_i' \]
+		بنابراین 
+		\[ \mathfrak{M}\models t_i(c_1,\ldots,c_n)=c_i' \]
+		کافی است نشان دهیم که 
+		\[ \mathfrak{M}\models R(c_1',\ldots,c_n') \]
+		از آنجا که 
+		\[ T\vdash R(c_1',\ldots,c_n') \]
+		بنا به قسمت‌های قبل 
+		\[ \mathfrak{M}\models R(c_1',\ldots,c_n')  \]
+		\[ \Big( R^\mathfrak{M} (a_{c_1'},\ldots,a_{c_n'}) \Big) \]
+		$ \circled{3} $
+		فرض کنید 
+		$ \varphi $
+		به صورت 
+		$ \psi_1 \wedge \psi_2 $
+		باشد و حکم برای 
+		$ \psi_1,\psi_2 $
+		برقرار باشد. فرض کنید که
+		\[ T\vdash \psi_1 \wedge \psi_2 \]
+	از این 
+	بنا به تاتولوژیِ
+	
+		\[ p\wedge q \to p \]
+	نتیجه می‌شود که 
+		\begin{align*}
+		\circled{2}\quad T\vdash \psi_1
+		\end{align*}
+
+		بنابراین (بنا بر فرض استقراء) 
+		\[ \mathfrak{M} \models \psi_1 \]
+		به طور مشابه 
+		\[ T \vdash \psi_2 \]
+		پس
+		\[ \mathfrak{M} \models \psi_2 \]
+		بنابراین 
+		\[ \mathfrak{M} \models \psi_1\wedge\psi_2 \]
+پیش از بیان ادامه‌ی اثبات دو تمرین زیر را پیشنهاد می‌کنم.
+		\begin{tamrin}
+	نشان دهید که
+			اگر 
+			$ T $
+			کامل و متناهیاً سازگار باشد آن‌گاه 
+			$ T $
+			تحت استنتاج بسته است، یعنی هرگاه
+			$ T \vdash \varphi $
+آنگاه
+			$ \varphi\in T $.
+		\end{tamrin}
+
+		\begin{tamrin}
+
+			اگر 
+			$ T $
+			متناهیاً سازگار باشد آن‌گاه 
+			\[ \text{سازگار باشد.}T\cup\{\neg \varphi\} \iff T\not\vdash\varphi \]
+		\end{tamrin}
+ادامه‌ی اثبات.
+		$ \circled{4} $
+		اگر 
+		$ \varphi $
+		به صورت 
+		$ \exists x \quad \psi(x) $
+		باشد و حکم برای فرمولهای
+		$\psi(c)$
+		برقرار باشد،  و بدانیم که
+		\[ \circled{1} \quad T \vdash \exists x \quad \psi \]
+آنگاه ادعا می‌کنیم که
+$$ \mathfrak{M} \models \exists x \quad \psi. $$
+داریم
+		\[ \circled{2} \quad T \vdash \exists x \psi(x) \to \psi(c) \]
+		\[ \circled{1},\circled{2},MP  \quad T\vdash \psi(c) \]
+		بنا به فرض استقراء
+		\[ \mathfrak{M} \models \psi(a_c) \]
+		پس بنا به تعاریف،
+		\[ \mathfrak{M}\models \exists x \quad \psi. \]
+	\end{proof}
+سرانجام در اینجا اثبات قضیه‌ی تمامیت گودل به پایان رسید. خلاصه‌ی همه‌ی آنچه در چند جلسه‌ی اخیر گفتیم، عبارت زیر است:
+\[
+\models \phi \quad \Leftrightarrow \quad \vdash \phi.
+\]
+قضیه‌ی تمامیت پُلِ میان نظریه‌ی اثبات و نظریه‌ی مدل است و نظریه‌ی مدل، با این قضیه خلق می‌شود. در این جلسه و جلسه‌ی آینده، به بیان برخی نتایج اولیه از  این قضیه خواهیم پرداخت.
+\par 
+دقت کنید که
+	ثابت کردیم که اگر 
+	$ T $
+	یک تئوری متناهیاً سازگار باشد آن‌گاه 
+	$ T $
+	دارای مدل است. بنابراین اگر برای هر 
+	$ \varphi_1,\ldots,\varphi_n\in T $
+	داشته باشیم 
+	$ \not\vdash \neg(\varphi_1,\wedge\ldots\wedge\varphi_n) $
+	آن‌گاه 
+	$ T $
+	دارای مدل است. به بیان دیگر اگر برای هر 
+	$ \varphi_1,\ldots,\varphi_n\in T $
+	اگر 
+	$ \{ \varphi_1,\ldots,\varphi_n \} $
+متناهیاً
+	سازگار باشد آن‌گاه 
+	$ T $
+	دارای مدل است. بنابراین اگر 
+	$ T $
+	یک تئوری باشد و برای هر 
+	$ \varphi_1,\ldots,\varphi_n\in T $
+	یک 
+	$ \mathcal{L} $ساختارِ
+	$ \mathfrak{M} $
+	موجود باشد به طوری که 
+	\[ \mathfrak{M}\models \varphi_1\wedge\ldots\wedge\varphi_n \]
+	آنگاه ساختاری مانند 
+	$ \mathbb{M}$
+	پیدا می‌شود به طوری که برای هر 
+	$ \varphi\in T $
+	\[ \mathbb{M}\models \varphi. \]
+این عبارت، قضیه‌ی فشردگی نام دارد. برای من این قضیه دارای بُعدی فلسفی نیز هست. فرض کنید مجموعه‌ای نامتناهی از صفات داشته باشیم. اگر بدانیم که هر تعداد متناهی از آنها را یک موجودِ این جهانی می‌تواند داشته باشد، آنگاه می‌دانیم که موجودی برتر هست که همه‌ی آن صفات را همزمان با هم داراست.  با مثالهای پیش رو درک درستی از این قضیه خواهید یافت.
+	\begin{thm}[فشردگی]
+		اگر هر بخش متناهی از 
+		$ T $
+		دارای مدل باشد آن‌گاه 
+		$ T $
+		دارای مدل است.
+	\end{thm}
+	\begin{defn}
+		$ T\models\varphi $
+		یعنی برای هر ساختارِ 
+		$ \mathfrak{M} $
+		اگر 
+		$ \mathfrak{M}\models T $
+		آن‌گاه 
+		$ \mathfrak{M}\models \varphi $.
+	\end{defn}
+	\begin{tamrin}
+		نشان دهید که 		\[ T\vdash\varphi \iff T\models \varphi \]
+	
+	\end{tamrin}
+از 
+آنچه تا به حال گفته شد، همچنین نتیجه می‌گیریم که 
+		اگر 
+		$ T $
+		یک تئوری کامل سازگار باشد آن‌گاه یک
+		$ \mathcal{L} $ساختارِ
+		$ \mathfrak{M} $
+		وجود دارد به طوری که
+		\[ T=Th(\mathfrak{M}). \]
+	یعنی هر تئوریِ کامل متناهیاً سازگار، در واقع تئوری کاملِ یک ساختار است (که معنی این در جلسات گذشته توضیح داده شده بود). اثبات این گفته آسان است. فرض کنید
+	$T$
+	یک تئوری کامل متناهیاًسازگار باشد، پس مدلی مانند
+	$\mathfrak{M}$
+	دارد. حال اگر جمله‌‌ای در
+	$\mathfrak{M}$
+	درست باشد، از دو حال خارج نیست، یا خودِ این جمله و یا نقیضِ آن در تئوری است. اگر نقیض آن در تئوری باشد، از آنجا که
+	$\mathfrak{M}$
+	مدلی برای تئوری است، باید هم خود جمله و هم نقیضش در
+	$\mathfrak{M}$
+	درست باشند، و این غیرممکن است. 
+	\par 
+	یکی از کاربردهای لم فشردگی، تشخیص امکان اصلبندی کلاسهای مختلف است. برای روشن شدن این گفته به مثال زیر توجه کنید.
+	\begin{mesal}
+		آیا می‌توان یک تئوری 
+		$ T $
+		برای کلاس متشکل از همه‌ی مجموعه‌های متناهی نوشت؟ (آیا می‌توان مجموعه‌‌ای از جملات به نام 
+		$ T $
+		پیدا کرد به طوری که 
+		یک مجموعه‌ی دلخواه 
+		$M$
+		متناهی باشد اگروتنها 
+		اگر جملات
+		$T$
+		در آن درست باشد).
+	\end{mesal}
+	\begin{proof}[پاسخ]
+		فرض کنید 
+		$ T $
+		یک تئوری در یک زبان مرتبه‌ی اول باشد که مجموعه‌های متناهی را اصل بندی کند. تئوری
+		$ T' $
+		را به صورت زیر در نظر بگیرید:
+		\begin{align*}
+		&T'=T\cup \{\exists x_1, x_2 \quad x_1\neq x_2\}\cup \{\exists x_1, x_2,x_3 \quad (x_1\neq x_2 \wedge x_2\neq x_3 \wedge x_1\neq x_3)\}\\
+		& \cup \ldots \cup \{\exists x_1,\ldots, x_n \quad \bigwedge x_i\neq x_j\}\cup \ldots
+		\end{align*}
+
+		ادعا:
+		$ T' $
+		متناهیاً سازگار است.
+		\newline
+
+		فرض کنید 
+		$ \Delta \subseteq T' $.
+	متناهی باشد. 
+	ادعا می‌کنیم که
+	$\Delta$
+	دارای مدل است.
+	مجموعه‌ی
+	$\Delta$
+	را می‌توان به صورتِ
+	$\Delta''\cup \Delta'$
+	نوشت که 
+	$\Delta''\subseteq T$
+	و
+	$\Delta'\subseteq T'-T$.
+	ما حکمی بزرگتر را ثابت می‌کنیم؛ یعنی ثابت می‌کنیم که 
+		$ T\cup \stackrel{\stackrel{\text{متناهی}}{\uparrow}}{\Delta'} $
+	مدل دارد.
+	\par 
+		فرض کنید 
+		$ n $
+		بزرگترین عدد طبیعی باشد به طوری که
+		\[ \exists x_1,\ldots,x_n \quad \bigwedge x_i \neq x_j \in \Delta \]
+		از آنجا که 
+		$ T $
+		تئوری مجموعه‌های متناهی است پس 
+		$ T $
+		دارای یک مدل متناهی 
+		$ \mathfrak{M} $
+		با اندازه‌ی حداقل 
+		$ n $
+		است. واضح است که
+		\[ \mathfrak{M} \models \Delta. \]
+حال از قضیه‌ی فشردگی نتیجه می‌شود که
+		$ T' $
+		دارای یک مدل به نام 
+		$ \mathfrak{N} $
+		است؛ یعنی
+		\[ \mathfrak{N} \models T' \]
+		دقت کنید  که بنا به اصولِ
+		$T'$
+		مجموعه‌ی
+		$ N $
+		نامتناهی است. از طرفی 
+		\[ \mathfrak{N} \models T' \supseteq T \]
+		پس 
+		\[ \stackrel{\stackrel{\text{نامتناهی}}{\uparrow}}{\mathfrak{N}} \models T \]
+و این تناقض است؛ زیرا قرار بود
+		 $ T $
+		 تئوری مجموعه‌های متناهی باشد!
+	\end{proof}
+همان طور که در مثال بالا مشاهده کردید، قضیه‌ی فشردگی گاهی برای تعیین حد و مرز اصل‌پذیری استفاده می‌شود. در این باره در جلسه‌ی آینده نیز سخن خواهیم گفت.
+\par 
+یکی از مهمترینِ دیگر کاربردهای فشردگی، لم لُوِنهایم اِسکولم است. بنابر این لم، اگر یک تئوریِ
+$T$
+در یک زبان شمارا دارای مدل باشد، آنگاه دارای مدل از هر اندازه‌ی نامتناهی دلخواه است. از این رو مثلاً یک مدل شمارایِ
+$M$
+وجود دارد به طوری که
+$\mathfrak{M}\models Th(\mathbb{R},+,\cdot)$.
+یعنی تمام ویژگی‌های مرتبه‌ی اول اعداد حقیقی را می‌توان در یک مدل شمارا نیز پیدا کرد. یا مثلاً می‌توان یک میدان بسته‌ی جبریِ شمارا یپدا کرد.
+	\begin{thm}[لونهایم-اسکولم]
+		فرض کنید 
+		$ T $
+		یک تئوری در یک زبان شمارا باشد که دارای حداقل یک مدلِ نامتناهی است. آن‌گاه 
+		$ T $
+		دارای مدل از هر سایزِ نامتناهیِ
+$\kappa$
+		است.
+	\end{thm}
+	\begin{proof}
+یک مجموعه ثوابت به صورت زیر، از اندازه‌ی
+$\kappa$
+به زبان اضافه کنید:
+		\[ C = \{ c_\lambda |\lambda < k \} \]
+		تئوری زیر را در نظر بگیرید:
+		\[ T' = T \cup \{ c_\lambda \neq c_{\lambda'}| \lambda,\lambda' \in C \} \]
+		ادعا: 
+		$ T' $
+		دارای مدل است.
+برای اثبات ادعای بالا، بنا به فشردگی کافی است ادعای زیر ثابت شود:
+\newline 
+		ادعا:
+		هر بخش متناهی از 
+		$ T' $
+		دارای مدل است.
+		\newline
+	و برای اثبات این کافی است ثابت کنیم که هر بخشِ
+	$T'$
+	به صورت
+		\[ \Delta = T\cup \stackrel{\stackrel{\text{متناهی}}{\uparrow}}{\Delta'} \]
+	دارای مدل است. دقت کنید که
+		$ \Delta' $
+		می‌گوید که 
+		$ n $تا
+		عنصر 
+		$ c_{\lambda_1},\ldots,c_{\lambda_n} $
+		با هم متمایزند. اگر 
+		$ \mathfrak{M} $
+همان مدل نامتناهیِ
+$T$
+باشد که صورت قضیه بدان اشاره کرده است،
+		باشد در آن حداقل 
+		$ n $
+		عنصر متمایز 
+		$ a_1, \ldots , a_n $
+		پیدا می‌شود. تعبیر کنید 
+		\[ c_{\lambda_i}^\mathfrak{M} =a_i \]
+		پس 
+		\[ \mathfrak{M} \models \Delta \]
+		پس 
+		$ T' $
+		دارای مدل است. آن مدل دارای سایزِ حداقل 
+		$ \kappa $
+		است. اثبات این که سایز این مدل می‌تواند دقیقاً
+		$\kappa$
+		باشد، در اثباتِ قضیه‌ی تمامیت نهفته است ولی فعلاً ترجیحاً وارد جزئیات آن نمی‌شوم (هر چند در زیر ایده‌ی مورد نظر را به صورت دیگری منتقل کرده‌ام).
+			\end{proof}
+			در اثبات قضیه‌ی اصلی اگر سایز زبان
+			$ |\mathcal{L}| $
+	شمارا می‌بود،
+آنگاه تعداد ثوابتی که بدان اضافه می‌کردیم نیز شمارا می‌شد (زیرا تعداد فرمولها هم شمارا می‌شد).
+همچنین مدلی که ساختیم از ثوابت تشکیل شده بود.
+			\[ M=(a_c)_{c\in C} \]
+در واقع در آن اثبات، تئوری ما، تئوری کاملِ ساختاری بود که از ثوابت ساخته شده است.	پس ما قضیه‌ی زیر را نیز ثابت کرده‌ایم:
+	\begin{thm}
+		فرض کنید 
+		$ \mathcal{L} $
+		یک زبان شمارا (یا متناهی) باشد و 
+		$ T $
+		یک 
+		$ \mathcal{L} $تئوریِ
+		سازگار باشد. آن‌گاه 
+		$ T $
+		دارای مدلی شماراست.
+	\end{thm}
+\end{document}
